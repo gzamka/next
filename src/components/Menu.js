@@ -10,10 +10,15 @@ import ContentCut from '@mui/icons-material/ContentCut';
 import ContentCopy from '@mui/icons-material/ContentCopy';
 import ContentPaste from '@mui/icons-material/ContentPaste';
 import Cloud from '@mui/icons-material/Cloud';
+import { useMenuToggle } from '../Layout/menuTogglelayout';
+
 
 export const Menu = () => {
+
+  const { menuToggle } = useMenuToggle();
+
   return (
-    <Paper sx={{ width: 320, maxWidth: '100%' }}>
+    <Paper sx={{ width: menuToggle ? 150 : 50, maxWidth: '100%', overflow: 'hidden' }}>
       <MenuList>
         <MenuItem>
           <ListItemIcon>
@@ -33,7 +38,7 @@ export const Menu = () => {
             ⌘C
           </Typography>
         </MenuItem>
-        <MenuItem>
+        <MenuItem >
           <ListItemIcon>
             <ContentPaste fontSize="small" />
           </ListItemIcon>
@@ -41,13 +46,6 @@ export const Menu = () => {
           <Typography variant="body2" color="text.secondary">
             ⌘V
           </Typography>
-        </MenuItem>
-        <Divider />
-        <MenuItem>
-          <ListItemIcon>
-            <Cloud fontSize="small" />
-          </ListItemIcon>
-          <ListItemText>Web Clipboard</ListItemText>
         </MenuItem>
       </MenuList>
     </Paper>
