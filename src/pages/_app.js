@@ -15,6 +15,7 @@ const MyApp = ({ Component, pageProps }) => {
         <Box sx={{ display: "flex" }}>
 
           <Menu />
+          asdfasd
           <Component {...pageProps} />
         </Box>
 

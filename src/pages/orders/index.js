@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 
 
-export const Orders = () => {
+const Orders = () => {
   return (
 
       <Box sx={{ p: 2}}> This is orders
@@ -9,3 +9,5 @@ export const Orders = () => {
 
   )
 }
+
+export default Orders

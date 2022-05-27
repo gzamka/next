@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 
 
-export const Dashboard = () => {
+const Dashboard = () => {
   return (
 
       <Box sx={{ p: 2}}> This is dashboard
@@ -10,3 +10,5 @@ export const Dashboard = () => {
 
   )
 }
+
+export default Dashboard

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
@@ -9,45 +8,58 @@ import Typography from '@mui/material/Typography';
 import ContentCut from '@mui/icons-material/ContentCut';
 import ContentCopy from '@mui/icons-material/ContentCopy';
 import ContentPaste from '@mui/icons-material/ContentPaste';
-import Cloud from '@mui/icons-material/Cloud';
 import { useMenuToggle } from '../Layout/menuTogglelayout';
+import { useRouter } from 'next/router';
 
 
 export const Menu = () => {
-
+  const { push } = useRouter();
   const { menuToggle } = useMenuToggle();
 
   return (
-    <Paper sx={{ width: menuToggle ? 150 : 50, maxWidth: '100%', overflow: 'hidden' }}>
+    <Paper sx={{ width: menuToggle ? 250 : 50, maxWidth: '100%', overflow: 'hidden' }}>
+      asdfasdf
       <MenuList>
-        <MenuItem>
-          <ListItemIcon>
-            <ContentCut fontSize="small" />
-          </ListItemIcon>
-          <ListItemText>Dashboard</ListItemText>
-          <Typography variant="body2" color="text.secondary">
-            ⌘X
-          </Typography>
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <ContentCopy fontSize="small" />
-          </ListItemIcon>
-          <ListItemText>Orders</ListItemText>
-          <Typography variant="body2" color="text.secondary">
-            ⌘C
-          </Typography>
-        </MenuItem>
-        <MenuItem >
-          <ListItemIcon>
-            <ContentPaste fontSize="small" />
-          </ListItemIcon>
-          <ListItemText>Paste</ListItemText>
-          <Typography variant="body2" color="text.secondary">
-            ⌘V
-          </Typography>
-        </MenuItem>
+        {listItem.map(({ href, title, icon, typo }, index) => {
+
+          <MenuItem
+            key={index}
+            onClick={() => {
+              push(href)
+            }}
+          >
+            <ListItemIcon>{icon}</ListItemIcon>
+            <ListItemText>{title}</ListItemText>
+            <Typography variant="body2" color="text.secondary">
+              {typo}
+            </Typography>
+          </MenuItem>
+
+        })}
+
       </MenuList>
     </Paper>
   );
 }
+
+
+const listItem = [
+  {
+    href: "/dashboard",
+    title: "Dashboard",
+    icon: <ContentCut fontSize="small" />,
+    typo: "⌘X"
+  },
+  {
+    href: "/orders",
+    title: "Order",
+    icon: <ContentCopy fontSize="small" />,
+    typo: "⌘C"
+  },
+  {
+    href: "/users",
+    title: "Users",
+    icon: <ContentPaste fontSize="small" />,
+    typo: "⌘"
+  },
+];
