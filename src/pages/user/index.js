@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { DataGrid, GridCellEditStopReasons } from '@mui/x-data-grid';
-import {
-  randomCreatedDate,
-  randomTraderName,
-  randomUpdatedDate,
-} from '@mui/x-data-grid-generator';
+// import {
+//   randomCreatedDate,
+//   randomTraderName,
+//   randomUpdatedDate,
+// } from '@mui/x-data-grid-generator';
 
 export default function DisableStopEditModeOnFocusOut() {
   return (
@@ -45,37 +45,37 @@ const columns = [
 const rows = [
   {
     id: 1,
-    name: randomTraderName(),
+    name: "Josh",
     age: 25,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate(),
+    dateCreated: "2020-02-31",
+    lastLogin: "Yesterday",
   },
   {
     id: 2,
-    name: randomTraderName(),
+    name: "Josh",
     age: 36,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate(),
+    dateCreated: "2020-02-31",
+    lastLogin: "Yesterday",
   },
   {
     id: 3,
-    name: randomTraderName(),
+    name: "Josh",
     age: 19,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate(),
+    dateCreated: "2020-02-31",
+    lastLogin: "Yesterday",
   },
   {
     id: 4,
-    name: randomTraderName(),
+    name: "Josh",
     age: 28,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate(),
+    dateCreated: "2020-02-31",
+    lastLogin: "Yesterday",
   },
   {
     id: 5,
-    name: randomTraderName(),
+    name: "Josh",
     age: 23,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate(),
+    dateCreated: "2020-02-31",
+    lastLogin: "Yesterday",
   },
 ];
