@@ -6,13 +6,14 @@ import { db } from '../../firebase'
 
 export default function DisableStopEditModeOnFocusOut() {
 let row = [];
+
   useEffect(() => {
 
     const fetchdata = async () => {
       
       const querySnapshot = await getDocs(collection(db, "products"));
       querySnapshot.forEach((doc) => {
-        // console.log(doc.data());
+        console.log(doc.data());
         row.push(...row, {
           id: doc.data().id,
           categories: doc.data().categories,
@@ -61,40 +62,40 @@ const columns = [
   },
 ];
 
-const rows = [
-  {
-    id: 1,
-    name: "Josh",
-    age: 25,
-    dateCreated: "2020-02-31",
-    lastLogin: "Yesterday",
-  },
-  {
-    id: 2,
-    name: "Josh",
-    age: 36,
-    dateCreated: "2020-02-31",
-    lastLogin: "Yesterday",
-  },
-  {
-    id: 3,
-    name: "Josh",
-    age: 19,
-    dateCreated: "2020-02-31",
-    lastLogin: "Yesterday",
-  },
-  {
-    id: 4,
-    name: "Josh",
-    age: 28,
-    dateCreated: "2020-02-31",
-    lastLogin: "Yesterday",
-  },
-  {
-    id: 5,
-    name: "Josh",
-    age: 23,
-    dateCreated: "2020-02-31",
-    lastLogin: "Yesterday",
-  },
-];
+// const rows = [
+//   {
+//     id: 1,
+//     name: "Josh",
+//     age: 25,
+//     dateCreated: "2020-02-31",
+//     lastLogin: "Yesterday",
+//   },
+//   {
+//     id: 2,
+//     name: "Josh",
+//     age: 36,
+//     dateCreated: "2020-02-31",
+//     lastLogin: "Yesterday",
+//   },
+//   {
+//     id: 3,
+//     name: "Josh",
+//     age: 19,
+//     dateCreated: "2020-02-31",
+//     lastLogin: "Yesterday",
+//   },
+//   {
+//     id: 4,
+//     name: "Josh",
+//     age: 28,
+//     dateCreated: "2020-02-31",
+//     lastLogin: "Yesterday",
+//   },
+//   {
+//     id: 5,
+//     name: "Josh",
+//     age: 23,
+//     dateCreated: "2020-02-31",
+//     lastLogin: "Yesterday",
+//   },
+// ];
