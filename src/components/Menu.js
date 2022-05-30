@@ -1,4 +1,3 @@
-import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
@@ -18,10 +17,10 @@ export const Menu = () => {
 
   return (
     <Paper sx={{ width: menuToggle ? 250 : 50, maxWidth: '100%', overflow: 'hidden' }}>
-      asdfasdf
+      
       <MenuList>
         {listItem.map(({ href, title, icon, typo }, index) => {
-
+          return (
           <MenuItem
             key={index}
             onClick={() => {
@@ -35,6 +34,7 @@ export const Menu = () => {
             </Typography>
           </MenuItem>
 
+          ) 
         })}
 
       </MenuList>

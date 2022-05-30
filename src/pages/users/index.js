@@ -1,16 +1,34 @@
-import * as React from 'react';
+import { useEffect } from 'react';
 import { DataGrid, GridCellEditStopReasons } from '@mui/x-data-grid';
-// import {
-//   randomCreatedDate,
-//   randomTraderName,
-//   randomUpdatedDate,
-// } from '@mui/x-data-grid-generator';
+import { collection, getDocs } from "firebase/firestore";
+import { db } from '../../firebase'
+
 
 export default function DisableStopEditModeOnFocusOut() {
+let row = [];
+  useEffect(() => {
+
+    const fetchdata = async () => {
+      
+      const querySnapshot = await getDocs(collection(db, "products"));
+      querySnapshot.forEach((doc) => {
+        // console.log(doc.data());
+        row.push(...row, {
+          id: doc.data().id,
+          categories: doc.data().categories,
+          price: doc.data().price,
+          description: doc.data().description,
+        })
+      })
+    }
+    fetchdata();
+
+  }, [])
+
   return (
     <div style={{ height: 300, width: '100%' }}>
       <DataGrid
-        rows={rows}
+        rows={row}
         columns={columns}
         experimentalFeatures={{ newEditingApi: true }}
         onCellEditStop={(params, event) => {
@@ -23,19 +41,20 @@ export default function DisableStopEditModeOnFocusOut() {
   );
 }
 
+
 const columns = [
-  { field: 'name', headerName: 'Name', width: 180, editable: true },
-  { field: 'age', headerName: 'Age', type: 'number', editable: true },
+  { field: 'name', headerName: 'Categories', width: 180, editable: true },
+  { field: 'age', headerName: 'Product Name', width:180, type: 'number', editable: true },
   {
-    field: 'dateCreated',
-    headerName: 'Date Created',
+    field: 'price',
+    headerName: 'Product Price',
     type: 'date',
     width: 180,
     editable: true,
   },
   {
-    field: 'lastLogin',
-    headerName: 'Last Login',
+    field: 'description',
+    headerName: 'Description',
     type: 'dateTime',
     width: 220,
     editable: true,
